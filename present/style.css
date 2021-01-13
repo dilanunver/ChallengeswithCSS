@@ -1,0 +1,96 @@
+body {
+  background: pink;
+}
+
+.present {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(crimson, darkred);
+  animation: jump 2s infinite linear;
+}
+.top {
+  position: absolute;
+  top: -82px;
+  left: 18px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(darkred, crimson);
+  transform: rotateX(-50deg) skewX(-20deg);
+}
+.side {
+  position: absolute;
+  top: -32px;
+  left: 98px;
+  width: 38px;
+  height: 100px;
+  background: darkred;
+  transform: skewY(-60deg);
+}
+.present::after,
+.top::after, 
+.side::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 100%;
+  background: forestgreen;
+  border-left: 2px solid darkgreen;
+  border-right: 2px solid darkgreen;
+  transform: translateX(-50%);
+}
+.top::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 26px;
+  background: forestgreen;
+  border-left: 2px solid darkgreen;
+  border-right: 2px solid darkgreen;
+  transform: translateY(-50%);
+}
+.side::after{
+  width: 9px;
+}
+.bow {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 70px;
+  z-index: 1000;
+}
+.shadow {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 40px);
+  width: 100px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+@keyframes jump {
+  0%,
+  30%,
+  60%,
+  70%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  40% {
+    transform: translateY(-100px) scale(1, 1.2);
+  }
+  45%,
+  55% {
+    transform: translateY(-100px) scale(1, 1);
+  }
+  65% {
+    transform-origin: 50px 100px;
+    transform: translateY(0) scale(1.3, 0.8);
+  }
+}
